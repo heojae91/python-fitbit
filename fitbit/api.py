@@ -978,3 +978,15 @@ class Fitbit(object):
             collection='/{0}'.format(collection) if collection else ''
         )
         return self.make_request(url)
+
+    def get_steps(self, date):
+        URL = "{0}/{1}/user/-/activities/steps/date/{year}-{month}-{day}.json".format(
+            *self._get_common_args(),
+            year=date.year,
+            month=date.month,
+            day=date.day
+        )
+        return self.make_request(url)
+
+
+
